@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class Spalshscreen extends StatefulWidget {
@@ -8,6 +10,13 @@ class Spalshscreen extends StatefulWidget {
 }
 
 class _SpalshscreenState extends State<Spalshscreen> {
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacementNamed('home');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

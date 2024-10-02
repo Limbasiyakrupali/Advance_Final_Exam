@@ -11,7 +11,7 @@ class DbHelper {
 
   Future<void> initDb() async {
     String databasepath = await getDatabasesPath();
-    String path = join(databasepath);
+    String path = join(databasepath, "first.db");
 
     db = await openDatabase(path, version: 1, onCreate: (Database db, version) {
       String quary =
@@ -28,7 +28,7 @@ class DbHelper {
       await initDb();
     }
     String quary =
-        "INSERT INTO recipes(id AUTOINCREMENT PRIMARY KEY INTEGER, quantity TEXT NOT NULL, name TEXT NOT NULL,type TEXT NOT NULL) VALUES(?,?,?);";
+        "INSERT INTO recipes(id INTEGER AUTOINCREMENT PRIMARY KEY , quantity TEXT NOT NULL, name TEXT NOT NULL,type TEXT NOT NULL) VALUES(?,?,?);";
     List args = [
       recipesmodel.quantity,
       recipesmodel.type,
@@ -66,7 +66,7 @@ class DbHelper {
       await initDb();
     }
 
-    String quary = "DELETE FROM recipes;";
+    String quary = "DELETE FROM recipes";
     await db?.rawDelete(quary);
   }
 

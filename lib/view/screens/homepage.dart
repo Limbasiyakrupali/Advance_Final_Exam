@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("DELETE"),
+                            title: const Text("DELETE"),
                             content: Text(
                                 "Are you sure want to delete this recipes"),
                             actions: [
